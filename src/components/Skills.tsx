@@ -14,7 +14,7 @@ export const Skills: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Core Technical Competencies
           </h2>
-          <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
+          <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">
             Backed by production engineering delivery at VE3 Global & DisruptiveNext.
           </p>
         </div>
@@ -24,7 +24,7 @@ export const Skills: React.FC = () => {
           {skillGroups.map((group, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm dark:shadow-none"
+              className="p-6 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm"
             >
               <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 dark:bg-cyan-400" />
@@ -35,7 +35,7 @@ export const Skills: React.FC = () => {
                 {group.skills.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-cyan-400/60 transition-colors"
+                    className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 transition-colors"
                   >
                     {skill}
                   </span>

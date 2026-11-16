@@ -29,13 +29,13 @@ export const Education: React.FC = () => {
             {educationList.map((item, index) => (
               <div
                 key={index}
-                className="p-5 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm dark:shadow-none"
+                className="p-5 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1.5">
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                     {item.degree}
                   </h4>
-                  <span className="text-xs font-mono text-cyan-700 dark:text-cyan-400 flex items-center gap-1 font-medium">
+                  <span className="text-xs font-mono text-cyan-700 dark:text-cyan-400 flex items-center gap-1">
                     <Calendar className="w-3 h-3" />
                     {item.duration}
                   </span>
@@ -63,7 +63,7 @@ export const Education: React.FC = () => {
             {certifications.map((cert, index) => (
               <div
                 key={index}
-                className="p-5 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm dark:shadow-none"
+                className="p-5 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm"
               >
                 <div className="flex items-center justify-between gap-2 mb-1">
                   <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
@@ -73,7 +73,7 @@ export const Education: React.FC = () => {
                     {cert.issuer}
                   </span>
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-1">
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-1">
                   {cert.highlight}
                 </p>
               </div>

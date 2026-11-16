@@ -13,22 +13,20 @@ import { AmbientBackground } from './components/AmbientBackground';
 export const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('about');
 
-  // Initialize theme from localStorage or default to dark
+  // Theme state with localStorage persistence
   const [isDark, setIsDark] = useState<boolean>(() => {
-    const savedTheme = localStorage.getItem('portfolio-theme');
-    if (savedTheme) {
-      return savedTheme === 'dark';
-    }
-    return true; // Default to dark theme
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved === 'dark';
+    return true; // Default to dark mode
   });
 
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('portfolio-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('portfolio-theme', 'light');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
 
@@ -65,7 +63,11 @@ export const App: React.FC = () => {
 
       {/* Main website content layered cleanly above background */}
       <div className="relative z-10">
-        <Navbar activeSection={activeSection} isDark={isDark} toggleTheme={toggleTheme} />
+        <Navbar
+          activeSection={activeSection}
+          isDark={isDark}
+          toggleTheme={toggleTheme}
+        />
         <main>
           <Hero />
           <About />

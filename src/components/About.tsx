@@ -46,7 +46,7 @@ export const About: React.FC = () => {
               I am an <strong className="text-slate-900 dark:text-white">AI Engineer</strong> focused on building autonomous agentic workflows and production-grade RAG architectures that run deterministically in enterprise environments.
             </p>
             <p>
-              At <strong className="text-slate-900 dark:text-white">VE3 Global</strong>, I work on <span className="text-cyan-600 dark:text-cyan-300 font-medium">MatchX</span>, a modular AI data quality platform. I develop agentic workflows for automated data cleaning, dynamic rule generation, hierarchical dataset matching, and optimize LLM response latency.
+              At <strong className="text-slate-900 dark:text-white">VE3 Global</strong>, I work on <span className="text-cyan-600 dark:text-cyan-300 font-semibold">MatchX</span>, a modular AI data quality platform. I develop agentic workflows for automated data cleaning, dynamic rule generation, hierarchical dataset matching, and optimize LLM response latency.
             </p>
             <p>
               Prior to VE3 Global, during my Generative AI internship at <strong className="text-slate-900 dark:text-white">DisruptiveNext (Phoenixgen)</strong>, I developed AutoGen multi-agent systems, document RAG pipelines, Model Context Protocol (MCP) servers, and financial document extraction pipelines.
@@ -61,7 +61,7 @@ export const About: React.FC = () => {
             {pillars.map((p, idx) => {
               const Icon = p.icon;
               return (
-                <div key={idx} className="p-4 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm dark:shadow-none">
+                <div key={idx} className="p-4 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm">
                   <div className="w-8 h-8 rounded-lg bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-500/20 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-3">
                     <Icon className="w-4 h-4" />
                   </div>

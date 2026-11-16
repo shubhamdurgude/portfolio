@@ -22,10 +22,10 @@ export const Experience: React.FC = () => {
           {experiences.map((exp) => (
             <div
               key={exp.id}
-              className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/90 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm dark:shadow-none transition-colors"
+              className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/90 shadow-sm transition-colors"
             >
               {/* Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-4 border-b border-slate-100 dark:border-slate-800/80">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-4 border-b border-slate-200 dark:border-slate-800/80">
                 <div>
                   <div className="flex flex-wrap items-center gap-2 mb-1">
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
@@ -36,13 +36,13 @@ export const Experience: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
-                    <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-200 font-medium">
+                  <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600 dark:text-slate-400">
+                    <span className="flex items-center gap-1.5 text-slate-800 dark:text-slate-200 font-medium">
                       <Building2 className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
                       {exp.company}
                     </span>
-                    <span className="flex items-center gap-1 text-slate-500">
-                      <MapPin className="w-3.5 h-3.5" />
+                    <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+                      <MapPin className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                       {exp.location}
                     </span>
                   </div>
@@ -62,7 +62,7 @@ export const Experience: React.FC = () => {
               {/* Contributions */}
               <div className="mb-6 space-y-2">
                 {exp.contributions.map((point, index) => (
-                  <div key={index} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <div key={index} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                     <CheckCircle className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 mt-1 shrink-0" />
                     <span>{point}</span>
                   </div>
@@ -70,7 +70,7 @@ export const Experience: React.FC = () => {
               </div>
 
               {/* Skill Badges */}
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60 flex flex-wrap gap-1.5">
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800/60 flex flex-wrap gap-1.5">
                 {exp.keySkills.map((skill, index) => (
                   <span
                     key={index}

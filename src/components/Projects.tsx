@@ -16,7 +16,7 @@ export const Projects: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Featured Systems & Applications
             </h2>
-            <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
+            <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">
               End-to-end AI applications covering Vector RAG, Text-to-SQL assistants, medical CNNs, and ML forecasting.
             </p>
           </div>
@@ -25,7 +25,7 @@ export const Projects: React.FC = () => {
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-slate-800 dark:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 transition-colors w-fit shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-slate-800 dark:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors w-fit"
           >
             <Github className="w-3.5 h-3.5" />
             <span>GitHub Repositories</span>
@@ -38,7 +38,7 @@ export const Projects: React.FC = () => {
           {projects.map((proj) => (
             <div
               key={proj.id}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm dark:shadow-none transition-colors flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm transition-colors flex flex-col justify-between"
             >
               <div>
                 {/* Category & Badge */}
@@ -69,7 +69,7 @@ export const Projects: React.FC = () => {
                 {/* Features */}
                 <div className="space-y-1.5 mb-6">
                   {proj.features.map((f, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
+                    <div key={i} className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400">
                       <Check className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 mt-0.5 shrink-0" />
                       <span>{f}</span>
                     </div>
@@ -78,7 +78,7 @@ export const Projects: React.FC = () => {
               </div>
 
               {/* Technologies */}
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60 flex flex-wrap gap-1.5">
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800/60 flex flex-wrap gap-1.5">
                 {proj.technologies.map((t, i) => (
                   <span
                     key={i}
