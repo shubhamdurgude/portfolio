@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowRight, Mail, Linkedin, Github, MapPin } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
-import { LiveNeuralVisualizer } from './LiveNeuralVisualizer';
 
 export const Hero: React.FC = () => {
   const handleScrollTo = (id: string) => {
@@ -14,10 +13,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="relative pt-32 pb-20 lg:pt-36 lg:pb-24">
-      {/* Subtle top ambient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[250px] bg-cyan-600/10 blur-[130px] rounded-full pointer-events-none" />
-
+    <section id="hero" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           
@@ -138,11 +134,6 @@ export const Hero: React.FC = () => {
               <div className="text-xs text-slate-400 font-medium">{h.label}</div>
             </div>
           ))}
-        </div>
-
-        {/* Live Interactive Visualization Stage */}
-        <div className="mt-12">
-          <LiveNeuralVisualizer />
         </div>
 
       </div>

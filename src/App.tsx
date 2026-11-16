@@ -8,6 +8,7 @@ import { Projects } from './components/Projects';
 import { Education } from './components/Education';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { AmbientBackground } from './components/AmbientBackground';
 
 export const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('about');
@@ -35,18 +36,24 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark-950 text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-200 antialiased">
-      <Navbar activeSection={activeSection} />
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-dark-950 text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-200 antialiased relative">
+      {/* Live slow-motion ambient background visualization */}
+      <AmbientBackground />
+
+      {/* Main website content layered cleanly above background */}
+      <div className="relative z-10">
+        <Navbar activeSection={activeSection} />
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Skills />
+          <Projects />
+          <Education />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };
