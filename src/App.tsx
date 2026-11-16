@@ -13,6 +13,29 @@ import { AmbientBackground } from './components/AmbientBackground';
 export const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('about');
 
+  // Initialize theme from localStorage or default to dark
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    return true; // Default to dark theme
+  });
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('portfolio-theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('portfolio-theme', 'light');
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => {
+    setIsDark((prev) => !prev);
+  };
+
   useEffect(() => {
     const sections = ['about', 'experience', 'skills', 'projects', 'education', 'contact'];
 
@@ -36,13 +59,13 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark-950 text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-200 antialiased relative">
+    <div className="min-h-screen bg-slate-50 dark:bg-dark-950 text-slate-900 dark:text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-600 dark:selection:text-cyan-200 antialiased relative transition-colors duration-300">
       {/* Live slow-motion ambient background visualization */}
       <AmbientBackground />
 
       {/* Main website content layered cleanly above background */}
       <div className="relative z-10">
-        <Navbar activeSection={activeSection} />
+        <Navbar activeSection={activeSection} isDark={isDark} toggleTheme={toggleTheme} />
         <main>
           <Hero />
           <About />

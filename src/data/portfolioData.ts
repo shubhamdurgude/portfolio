@@ -2,7 +2,7 @@ import { Project, ExperienceItem, SkillGroup, EducationItem, CertificationItem }
 
 export const personalInfo = {
   name: "Shubham Durgude",
-  role: "Software Engineer (AI)",
+  role: "AI Engineer",
   tagline: "Building Intelligent AI Solutions",
   location: "Pune, Maharashtra, India",
   email: "shubhamdurgude5@gmail.com",
@@ -12,7 +12,7 @@ export const personalInfo = {
   resumePath: "/Shubham_Durgude_Resume.pdf",
   profileImage: "/shubham.png",
   summary:
-    "Software Engineer (AI) with 1.5+ years of experience building agentic AI workflows, RAG pipelines, and scalable Python backend services. Hands-on experience with LangChain, LangGraph, AutoGen, Flask, Celery, and AWS Bedrock, optimizing LLM latency and engineering reliable enterprise AI platforms. M.Sc. in Data Science & AI.",
+    "AI Engineer with 1.5+ years of experience building agentic AI workflows, RAG pipelines, and scalable Python backend services. Hands-on experience with LangChain, LangGraph, AutoGen, Flask, Celery, and AWS Bedrock, optimizing LLM latency and engineering reliable enterprise AI platforms. M.Sc. in Data Science & AI.",
   highlights: [
     { label: "Experience", value: "1.5+ Years" },
     { label: "Featured Projects", value: "5+ Systems" },
@@ -25,7 +25,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: "ve3-global",
     company: "VE3 Global",
-    position: "Software Engineer (AI)",
+    position: "AI Engineer",
     location: "Pune, India",
     duration: "Oct 2025 – Present",
     type: "Full-Time",
@@ -254,11 +254,6 @@ export const certifications: CertificationItem[] = [
     title: "Computer Vision with Python",
     issuer: "Udemy",
     highlight: "Image processing, OpenCV, object tracking & neural feature extractors",
-  },
-  {
-    title: "Data Visualization with Power BI Simplified",
-    issuer: "Udemy",
-    highlight: "Interactive executive dashboards, DAX, and business analytics",
   },
   {
     title: "AIML for GeoData Analysis",

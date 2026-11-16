@@ -32,7 +32,6 @@ export const AmbientBackground: React.FC = () => {
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
-    // Slow-motion neural synaptic points
     interface Point {
       x: number;
       y: number;
@@ -40,19 +39,14 @@ export const AmbientBackground: React.FC = () => {
       vy: number;
       radius: number;
       baseAlpha: number;
-      color: string;
       phase: number;
+      colorDark: string;
+      colorLight: string;
     }
 
     let points: Point[] = [];
-    const colors = [
-      'rgba(34, 211, 238, ',  // Cyan
-      'rgba(99, 102, 241, ',  // Indigo
-      'rgba(168, 85, 247, ',  // Purple
-    ];
 
     const initNodes = () => {
-      // Density based on screen size, capped for buttery 60fps
       const count = Math.min(Math.floor((width * height) / 20000), 45);
       points = [];
       for (let i = 0; i < count; i++) {
@@ -63,8 +57,9 @@ export const AmbientBackground: React.FC = () => {
           vy: (Math.random() - 0.5) * 0.25,
           radius: Math.random() * 2 + 1,
           baseAlpha: Math.random() * 0.35 + 0.15,
-          color: colors[Math.floor(Math.random() * colors.length)],
           phase: Math.random() * Math.PI * 2,
+          colorDark: i % 2 === 0 ? 'rgba(34, 211, 238, ' : 'rgba(168, 85, 247, ',
+          colorLight: i % 2 === 0 ? 'rgba(8, 145, 178, ' : 'rgba(99, 102, 241, ',
         });
       }
     };
@@ -75,6 +70,7 @@ export const AmbientBackground: React.FC = () => {
 
     const render = () => {
       time += 0.003; // Slow-motion progression
+      const isDark = document.documentElement.classList.contains('dark');
 
       // Smooth mouse lerp
       mouse.x += (mouse.targetX - mouse.x) * 0.03;
@@ -86,8 +82,8 @@ export const AmbientBackground: React.FC = () => {
       const aura1X = width * 0.25 + Math.sin(time * 0.7) * 90;
       const aura1Y = height * 0.3 + Math.cos(time * 0.6) * 70;
       const aura1 = ctx.createRadialGradient(aura1X, aura1Y, 0, aura1X, aura1Y, 450);
-      aura1.addColorStop(0, 'rgba(6, 182, 212, 0.06)'); // Soft cyan
-      aura1.addColorStop(0.5, 'rgba(99, 102, 241, 0.03)'); // Indigo
+      aura1.addColorStop(0, isDark ? 'rgba(6, 182, 212, 0.07)' : 'rgba(6, 182, 212, 0.05)');
+      aura1.addColorStop(0.5, isDark ? 'rgba(99, 102, 241, 0.03)' : 'rgba(99, 102, 241, 0.02)');
       aura1.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = aura1;
       ctx.fillRect(0, 0, width, height);
@@ -95,20 +91,20 @@ export const AmbientBackground: React.FC = () => {
       const aura2X = width * 0.75 + Math.cos(time * 0.5) * 110;
       const aura2Y = height * 0.65 + Math.sin(time * 0.8) * 80;
       const aura2 = ctx.createRadialGradient(aura2X, aura2Y, 0, aura2X, aura2Y, 500);
-      aura2.addColorStop(0, 'rgba(139, 92, 246, 0.05)'); // Soft violet
-      aura2.addColorStop(0.5, 'rgba(59, 130, 246, 0.02)');
+      aura2.addColorStop(0, isDark ? 'rgba(139, 92, 246, 0.06)' : 'rgba(139, 92, 246, 0.04)');
+      aura2.addColorStop(0.5, isDark ? 'rgba(59, 130, 246, 0.02)' : 'rgba(59, 130, 246, 0.01)');
       aura2.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = aura2;
       ctx.fillRect(0, 0, width, height);
 
       // 2. Interactive Subtle Cursor Follower Glow
       const cursorGlow = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 280);
-      cursorGlow.addColorStop(0, 'rgba(34, 211, 238, 0.04)');
+      cursorGlow.addColorStop(0, isDark ? 'rgba(34, 211, 238, 0.04)' : 'rgba(6, 182, 212, 0.03)');
       cursorGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = cursorGlow;
       ctx.fillRect(0, 0, width, height);
 
-      // 3. Draw Slow-Motion Synaptic Filaments (Connections)
+      // 3. Draw Slow-Motion Synaptic Filaments
       const maxDist = 160;
       for (let i = 0; i < points.length; i++) {
         for (let j = i + 1; j < points.length; j++) {
@@ -117,11 +113,13 @@ export const AmbientBackground: React.FC = () => {
           const dist = Math.hypot(dx, dy);
 
           if (dist < maxDist) {
-            const alpha = (1 - dist / maxDist) * 0.14;
+            const alpha = (1 - dist / maxDist) * (isDark ? 0.14 : 0.10);
             ctx.beginPath();
             ctx.moveTo(points[i].x, points[i].y);
             ctx.lineTo(points[j].x, points[j].y);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+            ctx.strokeStyle = isDark
+              ? `rgba(56, 189, 248, ${alpha})`
+              : `rgba(14, 165, 233, ${alpha * 1.2})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -133,21 +131,20 @@ export const AmbientBackground: React.FC = () => {
         p.x += p.vx;
         p.y += p.vy;
 
-        // Wrap edges gracefully
         if (p.x < -20) p.x = width + 20;
         if (p.x > width + 20) p.x = -20;
         if (p.y < -20) p.y = height + 20;
         if (p.y > height + 20) p.y = -20;
 
-        // Breathing pulse
         const pulse = Math.sin(time * 2 + p.phase) * 0.15 + 0.85;
         const currentAlpha = p.baseAlpha * pulse;
+        const colorPrefix = isDark ? p.colorDark : p.colorLight;
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `${p.color}${currentAlpha})`;
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = 'rgba(34, 211, 238, 0.3)';
+        ctx.fillStyle = `${colorPrefix}${currentAlpha})`;
+        ctx.shadowBlur = isDark ? 10 : 6;
+        ctx.shadowColor = isDark ? 'rgba(34, 211, 238, 0.3)' : 'rgba(6, 182, 212, 0.2)';
         ctx.fill();
         ctx.shadowBlur = 0;
       });

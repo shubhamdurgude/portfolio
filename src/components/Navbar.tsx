@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 interface NavbarProps {
   activeSection: string;
+  isDark: boolean;
+  toggleTheme: () => void;
 }
 
 const navItems = [
@@ -15,7 +17,7 @@ const navItems = [
   { id: 'contact', label: 'Contact' },
 ];
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, isDark, toggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -41,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? 'bg-dark-950/90 backdrop-blur-md border-b border-slate-800/80 py-3 shadow-lg shadow-black/20'
+          ? 'bg-white/85 dark:bg-dark-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80 py-3 shadow-lg shadow-black/5 dark:shadow-black/20'
           : 'bg-transparent py-5'
       }`}
     >
@@ -53,15 +55,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-2.5 text-left focus:outline-none group cursor-pointer"
           >
-            <span className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center font-mono font-bold text-xs text-cyan-400 group-hover:border-cyan-400 transition-colors">
+            <span className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center font-mono font-bold text-xs text-cyan-600 dark:text-cyan-400 group-hover:border-cyan-400 transition-colors">
               SD
             </span>
             <div className="flex flex-col">
-              <span className="text-sm font-semibold text-white tracking-tight group-hover:text-cyan-300 transition-colors">
+              <span className="text-sm font-semibold text-slate-900 dark:text-white tracking-tight group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
                 {personalInfo.name}
               </span>
-              <span className="text-[11px] text-slate-400 font-mono">
-                Software Engineer (AI)
+              <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+                {personalInfo.role}
               </span>
             </div>
           </button>
@@ -76,8 +78,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   onClick={() => handleNavClick(item.id)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
                     isActive
-                      ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/30'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                      ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-200 dark:border-cyan-500/30 font-semibold'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50'
                   }`}
                 >
                   {item.label}
@@ -86,15 +88,31 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             })}
           </nav>
 
-          {/* Mobile Menu Toggle */}
-          <div className="flex md:hidden items-center">
+          {/* Dark / Light Mode Toggle Button */}
+          <div className="flex items-center gap-2">
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white"
-              aria-label="Toggle Navigation Menu"
+              onClick={toggleTheme}
+              className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all cursor-pointer focus:outline-none"
+              title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              aria-label="Toggle Dark / Light Mode"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isDark ? (
+                <Sun className="w-4 h-4 text-amber-400 transition-transform hover:rotate-45" />
+              ) : (
+                <Moon className="w-4 h-4 text-indigo-600 transition-transform hover:-rotate-12" />
+              )}
             </button>
+
+            {/* Mobile Menu Toggle */}
+            <div className="flex md:hidden items-center">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                aria-label="Toggle Navigation Menu"
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
 
         </div>
@@ -102,12 +120,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-dark-950/95 border-b border-slate-800 px-4 py-4 mt-3 space-y-1">
+        <div className="md:hidden bg-white/95 dark:bg-dark-950/95 border-b border-slate-200 dark:border-slate-800 px-4 py-4 mt-3 space-y-1">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className="w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/50"
+              className="w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50"
             >
               {item.label}
             </button>
