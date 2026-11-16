@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Mail, Linkedin, Github, MapPin } from 'lucide-react';
+import { ArrowRight, Mail, Linkedin, Github, Instagram, MapPin } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
@@ -62,6 +62,7 @@ export const Hero: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 hover:text-slate-900 dark:hover:text-white transition-colors"
+                aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>LinkedIn</span>
@@ -72,14 +73,27 @@ export const Hero: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 hover:text-slate-900 dark:hover:text-white transition-colors"
+                aria-label="GitHub Profile"
               >
                 <Github className="w-4 h-4 text-slate-700 dark:text-slate-300" />
                 <span>GitHub</span>
               </a>
 
               <a
+                href={personalInfo.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-slate-900 dark:hover:text-white transition-colors"
+                aria-label="Instagram Profile"
+              >
+                <Instagram className="w-4 h-4 text-rose-500 dark:text-rose-400" />
+                <span>Instagram</span>
+              </a>
+
+              <a
                 href={`mailto:${personalInfo.email}`}
                 className="flex items-center gap-1.5 hover:text-slate-900 dark:hover:text-white transition-colors"
+                aria-label="Email Contact"
               >
                 <Mail className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>{personalInfo.email}</span>

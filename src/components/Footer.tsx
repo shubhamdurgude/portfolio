@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Linkedin, Github, Mail } from 'lucide-react';
+import { ArrowUp, Linkedin, Github, Instagram, Mail } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
-              aria-label="LinkedIn"
+              aria-label="LinkedIn Profile"
             >
               <Linkedin className="w-4 h-4" />
             </a>
@@ -39,15 +39,25 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
-              aria-label="GitHub"
+              aria-label="GitHub Profile"
             >
               <Github className="w-4 h-4" />
             </a>
 
             <a
+              href={personalInfo.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-500 dark:text-slate-400 hover:text-rose-500 dark:hover:text-rose-400 transition-colors"
+              aria-label="Instagram Profile"
+            >
+              <Instagram className="w-4 h-4" />
+            </a>
+
+            <a
               href={`mailto:${personalInfo.email}`}
               className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
-              aria-label="Email"
+              aria-label="Email Contact"
             >
               <Mail className="w-4 h-4" />
             </a>
@@ -65,7 +75,6 @@ export const Footer: React.FC = () => {
 
         <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500 dark:text-slate-400">
           <div>&copy; {currentYear} {personalInfo.name}. All rights reserved.</div>
-          <div className="font-mono text-[11px] text-slate-400">Designed with modern simplicity</div>
         </div>
       </div>
     </footer>

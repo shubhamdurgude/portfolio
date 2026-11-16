@@ -7,6 +7,7 @@ export interface Project {
   features: string[];
   technologies: string[];
   metrics?: string;
+  repoUrl?: string;
 }
 
 export interface ExperienceItem {

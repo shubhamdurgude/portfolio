@@ -9,6 +9,7 @@ export const personalInfo = {
   phone: "+91-8767978456",
   linkedin: "https://www.linkedin.com/in/shubham-durgude-aa1618217/",
   github: "https://github.com/shubhamdurgude",
+  instagram: "https://www.instagram.com/imshubhamdurgude?obrf=MzJzcDBmbXdwbXpy",
   resumePath: "/Shubham_Durgude_Resume.pdf",
   profileImage: "/shubham.png",
   summary:
@@ -25,7 +26,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: "ve3-global",
     company: "VE3 Global",
-    position: "AI Engineer",
+    position: "Software Engineer (AI)",
     location: "Pune, India",
     duration: "Oct 2025 – Present",
     type: "Full-Time",
@@ -169,6 +170,7 @@ export const projects: Project[] = [
     ],
     technologies: ["LangFlow", "Cohere LLM", "AstraDB", "ChromaDB", "RAG", "Python"],
     metrics: "Multi-Source Vector RAG",
+    repoUrl: "https://github.com/shubhamdurgude",
   },
   {
     id: "ai-chat-banking",
@@ -184,6 +186,7 @@ export const projects: Project[] = [
     ],
     technologies: ["Python", "LangChain", "PostgreSQL", "Google GenAI", "Gradio", "PyPDF2"],
     metrics: "Natural Language -> SQL",
+    repoUrl: "https://github.com/shubhamdurgude",
   },
   {
     id: "customer-segmentation",
@@ -199,6 +202,7 @@ export const projects: Project[] = [
     ],
     technologies: ["Python", "Scikit-learn", "K-Means", "Clustering", "Pandas", "Matplotlib"],
     metrics: "Silhouette & Davies-Bouldin Evaluated",
+    repoUrl: "https://github.com/shubhamdurgude",
   },
   {
     id: "brain-tumor-detection",
@@ -214,6 +218,7 @@ export const projects: Project[] = [
     ],
     technologies: ["Python", "TensorFlow", "CNN", "Deep Learning", "OpenCV", "Image Processing"],
     metrics: "Multiclass Medical CNN",
+    repoUrl: "https://github.com/shubhamdurgude",
   },
   {
     id: "walmart-sales-forecasting",
@@ -229,6 +234,7 @@ export const projects: Project[] = [
     ],
     technologies: ["Python", "Machine Learning", "XGBoost", "Scikit-learn", "Pandas", "NumPy"],
     metrics: "Low Error XGBoost Model",
+    repoUrl: "https://github.com/shubhamdurgude",
   },
 ];
 

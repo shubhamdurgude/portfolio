@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Linkedin, Github, Copy, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Instagram, Copy, Check } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export const Contact: React.FC = () => {
@@ -111,25 +111,38 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 pt-2">
+            <div className="grid grid-cols-3 gap-2 pt-2">
               <a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white transition-colors"
+                className="flex items-center justify-center gap-1 px-2.5 py-2 rounded-lg bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white transition-colors"
+                title="LinkedIn"
               >
                 <Linkedin className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
-                <span>LinkedIn</span>
+                <span className="text-[11px]">LinkedIn</span>
               </a>
 
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white transition-colors"
+                className="flex items-center justify-center gap-1 px-2.5 py-2 rounded-lg bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white transition-colors"
+                title="GitHub"
               >
                 <Github className="w-3.5 h-3.5" />
-                <span>GitHub</span>
+                <span className="text-[11px]">GitHub</span>
+              </a>
+
+              <a
+                href={personalInfo.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-1 px-2.5 py-2 rounded-lg bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-rose-400 dark:hover:border-rose-500 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white transition-colors"
+                title="Instagram"
+              >
+                <Instagram className="w-3.5 h-3.5 text-rose-500 dark:text-rose-400" />
+                <span className="text-[11px]">Insta</span>
               </a>
             </div>
           </div>
