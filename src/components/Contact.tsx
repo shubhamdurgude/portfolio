@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Linkedin, Github, Download, Copy, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Copy, Check, ArrowUpRight } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export const Contact: React.FC = () => {
@@ -62,9 +62,10 @@ export const Contact: React.FC = () => {
             </div>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="mt-6 text-xs text-cyan-400 hover:text-cyan-300 font-semibold"
+              className="mt-6 text-xs text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1"
             >
-              Compose direct email &rarr;
+              <span>Compose direct email</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
@@ -93,9 +94,10 @@ export const Contact: React.FC = () => {
             </div>
             <a
               href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`}
-              className="mt-6 text-xs text-cyan-400 hover:text-cyan-300 font-semibold"
+              className="mt-6 text-xs text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1"
             >
-              Call or WhatsApp &rarr;
+              <span>Call or WhatsApp</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
@@ -136,20 +138,19 @@ export const Contact: React.FC = () => {
 
         </div>
 
-        {/* Big Action Bar */}
+        {/* Technical Collaboration & Discussion Banner */}
         <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/30 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <div className="text-sm font-bold text-white">Need a verified copy of my credentials?</div>
-            <div className="text-xs text-slate-400 mt-0.5">Download my latest resume in standard ATS-friendly PDF format.</div>
+            <div className="text-sm font-bold text-white">Open for Technical Collaboration & Architecture Discussions</div>
+            <div className="text-xs text-slate-400 mt-0.5">Interested in exploring Agentic workflows, RAG pipelines, or Python backend scaling? Let's connect.</div>
           </div>
 
           <a
-            href={personalInfo.resumePath}
-            download="Shubham_Durgude_Resume.pdf"
+            href={`mailto:${personalInfo.email}?subject=Technical%20Discussion%20/%20Opportunity`}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-dark-950 bg-cyan-400 hover:bg-cyan-300 transition-colors shrink-0"
           >
-            <Download className="w-3.5 h-3.5" />
-            <span>Download Official Resume (PDF)</span>
+            <Mail className="w-3.5 h-3.5" />
+            <span>Start a Conversation</span>
           </a>
         </div>
 

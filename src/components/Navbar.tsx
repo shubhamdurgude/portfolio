@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -86,27 +86,25 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             })}
           </nav>
 
-          {/* Download Resume Button */}
+          {/* Primary Action Button */}
           <div className="hidden sm:flex items-center gap-3">
-            <a
-              href={personalInfo.resumePath}
-              download="Shubham_Durgude_Resume.pdf"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-cyan-500/40 transition-colors"
+            <button
+              onClick={() => handleNavClick('contact')}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-cyan-500/40 transition-colors cursor-pointer"
             >
-              <Download className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Resume</span>
-            </a>
+              <span>Get in Touch</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-cyan-400" />
+            </button>
           </div>
 
           {/* Mobile Menu Toggle */}
           <div className="flex md:hidden items-center gap-2">
-            <a
-              href={personalInfo.resumePath}
-              download="Shubham_Durgude_Resume.pdf"
+            <button
+              onClick={() => handleNavClick('contact')}
               className="sm:hidden px-2.5 py-1 rounded-md text-xs font-semibold text-cyan-300 bg-cyan-950/60 border border-cyan-500/30"
             >
-              Resume
-            </a>
+              Contact
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white"
@@ -132,14 +130,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             </button>
           ))}
           <div className="pt-2 border-t border-slate-800">
-            <a
-              href={personalInfo.resumePath}
-              download="Shubham_Durgude_Resume.pdf"
+            <button
+              onClick={() => handleNavClick('contact')}
               className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold text-white bg-cyan-600 hover:bg-cyan-500"
             >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download Resume (PDF)</span>
-            </a>
+              <span>Get in Touch</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
       )}

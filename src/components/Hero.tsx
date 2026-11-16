@@ -1,10 +1,10 @@
 import React from 'react';
-import { ArrowRight, Download, Linkedin, Github, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, MessageSquare, Linkedin, Github, Mail, MapPin } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
-  const handleScrollToProjects = () => {
-    const el = document.getElementById('projects');
+  const handleScroll = (id: string) => {
+    const el = document.getElementById(id);
     if (el) {
       const yOffset = -70;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -23,10 +23,10 @@ export const Hero: React.FC = () => {
           {/* Left: Text & Actions (7 cols) */}
           <div className="lg:col-span-7 flex flex-col items-start">
             
-            {/* Status Pill */}
+            {/* Status / Focus Pill */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 mb-6">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Available for AI Engineering Roles &middot; Pune, India</span>
+              <span className="w-2 h-2 rounded-full bg-cyan-400" />
+              <span>Enterprise Agentic AI & RAG Systems &middot; Pune, India</span>
             </div>
 
             {/* Greeting & Headline */}
@@ -42,27 +42,26 @@ export const Hero: React.FC = () => {
 
             {/* Short Intro */}
             <p className="text-base text-slate-300 leading-relaxed mb-8 max-w-xl font-normal">
-              Specialized in engineering <strong className="text-white font-semibold">Agentic AI workflows</strong>, high-precision <strong className="text-white font-semibold">RAG pipelines</strong>, and scalable Python backend microservices. Hands-on with LangChain, LangGraph, AutoGen, Celery, and AWS Bedrock, optimizing LLM latency by ~50% in enterprise data platforms.
+              Specialized in engineering <strong className="text-white font-semibold">Agentic AI workflows</strong>, high-precision <strong className="text-white font-semibold">RAG pipelines</strong>, and scalable Python backend microservices. Hands-on with LangChain, LangGraph, AutoGen, Celery, and AWS Bedrock, optimizing LLM inference latency and token efficiency in enterprise data platforms.
             </p>
 
-            {/* CTAs */}
+            {/* Two Action CTAs */}
             <div className="flex flex-wrap items-center gap-3.5 mb-10 w-full sm:w-auto">
               <button
-                onClick={handleScrollToProjects}
+                onClick={() => handleScroll('projects')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-xs text-dark-950 bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-lg shadow-cyan-500/20 cursor-pointer"
               >
                 <span>Explore My Work</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
 
-              <a
-                href={personalInfo.resumePath}
-                download="Shubham_Durgude_Resume.pdf"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-xs text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors"
+              <button
+                onClick={() => handleScroll('contact')}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-xs text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors cursor-pointer"
               >
-                <Download className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Download Resume</span>
-              </a>
+                <MessageSquare className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Get in Touch</span>
+              </button>
             </div>
 
             {/* Social Links & Location */}
@@ -125,8 +124,8 @@ export const Hero: React.FC = () => {
                     <div className="text-xs font-bold text-white">Shubham Durgude</div>
                     <div className="text-[11px] text-cyan-300 font-mono">Software Engineer (AI)</div>
                   </div>
-                  <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-400 border border-emerald-500/30">
-                    Active
+                  <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-500/30">
+                    MatchX Platform
                   </span>
                 </div>
               </div>
@@ -140,7 +139,7 @@ export const Hero: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-10 border-t border-slate-800/80">
           {personalInfo.highlights.map((h, i) => (
             <div key={i} className="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80">
-              <div className="text-2xl font-bold text-white mb-0.5">{h.value}</div>
+              <div className="text-xl sm:text-2xl font-bold text-white mb-0.5">{h.value}</div>
               <div className="text-xs text-slate-400 font-medium">{h.label}</div>
             </div>
           ))}
