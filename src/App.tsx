@@ -8,6 +8,7 @@ import { Skills } from './components/skills/Skills';
 import { Projects } from './components/projects/Projects';
 import { Education } from './components/education/Education';
 import { Contact } from './components/contact/Contact';
+import { ParticlesCanvas } from './components/common/ParticlesCanvas';
 
 export const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('hero');
@@ -16,7 +17,7 @@ export const App: React.FC = () => {
     const sections = ['hero', 'about', 'experience', 'skills', 'projects', 'education', 'contact'];
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 200; // Lookahead offset
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const sectionId = sections[i];
@@ -37,8 +38,11 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-dark-950 text-slate-100 relative selection:bg-cyan-500/20 selection:text-cyan-200">
-      {/* Clean subtle top ambient glow */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-b from-cyan-950/20 via-transparent to-transparent pointer-events-none z-0" />
+      {/* Background ambient neural particle canvas */}
+      <ParticlesCanvas />
+
+      {/* Subtle global grid background */}
+      <div className="fixed inset-0 bg-grid-pattern opacity-40 pointer-events-none z-0" />
 
       {/* Main content wrapper */}
       <div className="relative z-10 flex flex-col min-h-screen">
