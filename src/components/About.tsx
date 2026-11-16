@@ -40,7 +40,7 @@ export const About: React.FC = () => {
         </div>
 
         {/* Narrative & Focus */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-6 space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
             <p>
               I am an <strong className="text-slate-900 dark:text-white">AI Engineer</strong> focused on building autonomous agentic workflows and production-grade RAG architectures that run deterministically in enterprise environments.

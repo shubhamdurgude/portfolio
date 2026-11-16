@@ -17,13 +17,13 @@ export const Education: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           
-          {/* Education Degrees (7 cols) */}
-          <div className="lg:col-span-7 space-y-4">
+          {/* Education Degrees */}
+          <div className="space-y-4">
             <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
               <GraduationCap className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-              University Degrees
+              <span>University Degrees</span>
             </h3>
 
             {educationList.map((item, index) => (
@@ -53,11 +53,11 @@ export const Education: React.FC = () => {
             ))}
           </div>
 
-          {/* Certifications (5 cols) */}
-          <div className="lg:col-span-5 space-y-4">
+          {/* Certifications */}
+          <div className="space-y-4">
             <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
               <Award className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-              Certifications
+              <span>Certifications</span>
             </h3>
 
             {certifications.map((cert, index) => (
