@@ -19,11 +19,11 @@ export const Education: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Education Timeline (7 cols) */}
+          {/* Education Degrees (7 cols) */}
           <div className="lg:col-span-7 space-y-4">
             <h3 className="text-sm font-bold text-white flex items-center gap-2 mb-4">
               <GraduationCap className="w-4 h-4 text-cyan-400" />
-              Academic Degrees
+              University Degrees
             </h3>
 
             {educationList.map((item, index) => (

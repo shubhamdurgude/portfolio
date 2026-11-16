@@ -15,7 +15,7 @@ const pillars = [
   {
     icon: Zap,
     title: 'LLM Performance & Latency Optimization',
-    description: 'Accelerating LLM response times and token efficiency through prompt compression, parameter tuning, and TOON payload serialization.',
+    description: 'Optimizing model response efficiency through prompt compression, parameter tuning, TOON payload serialization, and token caching.',
   },
   {
     icon: Server,
@@ -46,7 +46,7 @@ export const About: React.FC = () => {
               I am a <strong className="text-white">Software Engineer (AI)</strong> focused on building autonomous agentic workflows and production-grade RAG architectures that run deterministically in enterprise environments.
             </p>
             <p>
-              At <strong className="text-white">VE3 Global</strong>, I work on <span className="text-cyan-300 font-medium">MatchX</span>, a modular AI data quality platform. I develop agentic workflows for automated data cleaning, dynamic rule generation, hierarchical dataset matching, and optimize LLM response latency and token efficiency.
+              At <strong className="text-white">VE3 Global</strong>, I work on <span className="text-cyan-300 font-medium">MatchX</span>, a modular AI data quality platform. I develop agentic workflows for automated data cleaning, dynamic rule generation, hierarchical dataset matching, and optimize LLM response latency.
             </p>
             <p>
               Prior to VE3 Global, during my Generative AI internship at <strong className="text-white">DisruptiveNext (Phoenixgen)</strong>, I developed AutoGen multi-agent systems, document RAG pipelines, Model Context Protocol (MCP) servers, and financial document extraction pipelines.

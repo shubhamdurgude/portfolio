@@ -9,14 +9,15 @@ export const personalInfo = {
   phone: "+91-8767978456",
   linkedin: "https://www.linkedin.com/in/shubham-durgude-aa1618217/",
   github: "https://github.com/shubhamdurgude",
+  resumePath: "/Shubham_Durgude_Resume.pdf",
   profileImage: "/shubham.png",
   summary:
-    "Software Engineer (AI) with 1.5+ years of experience building agentic AI workflows, RAG pipelines, and scalable Python backend services. Hands-on experience with LangChain, LangGraph, AutoGen, Flask, Celery, and AWS Bedrock, optimizing LLM latency, token efficiency, and engineering reliable enterprise AI platforms. M.Sc. in Data Science & AI.",
+    "Software Engineer (AI) with 1.5+ years of experience building agentic AI workflows, RAG pipelines, and scalable Python backend services. Hands-on experience with LangChain, LangGraph, AutoGen, Flask, Celery, and AWS Bedrock, optimizing LLM latency and engineering reliable enterprise AI platforms. M.Sc. in Data Science & AI.",
   highlights: [
     { label: "Experience", value: "1.5+ Years" },
-    { label: "Core Focus", value: "Agentic AI & RAG" },
+    { label: "Featured Projects", value: "5+ Systems" },
     { label: "Education", value: "M.Sc. DS & AI" },
-    { label: "Architecture", value: "Multi-Agent & Queues" },
+    { label: "Core Focus", value: "Agentic AI & RAG" },
   ],
 };
 
@@ -29,14 +30,14 @@ export const experiences: ExperienceItem[] = [
     duration: "Oct 2025 – Present",
     type: "Full-Time",
     summary:
-      "Contributing to MatchX, a modular AI-powered data quality platform (ingestion, profiling, rule library, cleaning, matching, validation, and verification) by developing backend services, agentic workflows, and system optimizations.",
+      "Contributing to MatchX, a modular AI-powered data quality platform (ingestion, profiling, rule library, cleaning, matching, validation, and verification) by developing backend services, agentic workflows, and latency optimizations.",
     contributions: [
       "Developed agentic AI workflows for data analysis and automated data cleaning using predefined rules and dynamic custom rule generation with revert/update capabilities.",
       "Designed and implemented custom agent tools for data quality analysis and cleaning, improving transformation efficiency and reliability.",
       "Developed hierarchical dataset matching supporting exact, deterministic, probabilistic, and fuzzy matching approaches with Celery background processing for high-volume tasks.",
       "Built connector-based ingestion for OneDrive, Amazon S3, and Google Sheets, supporting selective sheet ingestion from Excel files and handling CSV/JSON formats.",
       "Optimized backend performance by resolving memory leaks and refactoring code, significantly improving stability and resource efficiency.",
-      "Optimized AI response times and throughput through prompt engineering, parameter tuning, smaller request payloads, and TOON format in place of JSON for flat data.",
+      "Optimized AI response times through prompt engineering, parameter tuning, smaller request payloads, and TOON format in place of JSON for flat data.",
       "Instrumented Flask APIs with Prometheus metrics to monitor request count, latency, and error rates in real-time.",
       "Built a data-quality scan API (Spark) running user-selected rules and validation rules in parallel with live progress tracking via Redis Pub/Sub.",
       "Implemented safe data cleaning runs that apply rules batch-by-batch and replace datasets only on 100% success, featuring audit trails and quality-score recalculations.",
@@ -245,20 +246,6 @@ export const educationList: EducationItem[] = [
     location: "Pune, India",
     duration: "2019 – 2022",
     badge: "Bachelor's Degree",
-  },
-  {
-    degree: "12th (PCM) – Physics, Chemistry & Mathematics",
-    institution: "Vidya Pratishthan, Baramati",
-    location: "Baramati, India",
-    duration: "2017 – 2019",
-    badge: "HSC",
-  },
-  {
-    degree: "10th – Science",
-    institution: "SNVS & Junior College",
-    location: "Maharashtra, India",
-    duration: "2011 – 2017",
-    badge: "SSC",
   },
 ];
 
