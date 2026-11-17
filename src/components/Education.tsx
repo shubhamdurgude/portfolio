@@ -8,7 +8,7 @@ export const Education: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-12 max-w-2xl">
+        <div className="mb-10 max-w-2xl">
           <div className="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 mb-2 font-semibold">
             // 05. EDUCATION & CREDENTIALS
           </div>
@@ -17,11 +17,11 @@ export const Education: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           
-          {/* Education Degrees */}
+          {/* University Degrees */}
           <div className="space-y-4">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
               <GraduationCap className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
               <span>University Degrees</span>
             </h3>
@@ -31,7 +31,7 @@ export const Education: React.FC = () => {
                 key={index}
                 className="p-5 rounded-xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                     {item.degree}
                   </h4>
@@ -55,7 +55,7 @@ export const Education: React.FC = () => {
 
           {/* Certifications */}
           <div className="space-y-4">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-2">
               <Award className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
               <span>Certifications</span>
             </h3>
@@ -73,7 +73,7 @@ export const Education: React.FC = () => {
                     {cert.issuer}
                   </span>
                 </div>
-                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-1">
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-1">
                   {cert.highlight}
                 </p>
               </div>
