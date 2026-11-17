@@ -12,7 +12,7 @@ export const personalInfo = {
   instagram: "https://www.instagram.com/imshubhamdurgude?obrf=MzJzcDBmbXdwbXpy",
   profileImage: "/shubham.png",
   summary:
-    "AI Engineer specializing in autonomous Agentic workflows, enterprise RAG pipelines, and high-performance Python backends. Experienced with LangChain, LangGraph, AutoGen, Celery, and AWS Bedrock.",
+    "AI Engineer with 1.5+ years of experience (including internships) building agentic AI workflows, RAG pipelines, and scalable Python backend services. M.Sc. in Data Science & AI from Symbiosis International University, Pune.",
   highlights: [
     { label: "Experience", value: "1.5+ Years" },
     { label: "AI Systems", value: "5+ Built" },

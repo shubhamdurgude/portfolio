@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Linkedin, Github, Instagram, Copy, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Instagram, Copy, Check, Eye, Lock } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export const Contact: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [phoneRevealed, setPhoneRevealed] = useState(false);
 
   const copyToClipboard = (text: string, type: 'email' | 'phone') => {
     navigator.clipboard.writeText(text);
@@ -68,35 +69,73 @@ export const Contact: React.FC = () => {
             </a>
           </div>
 
-          {/* Phone */}
+          {/* Phone (Protected: Click to Reveal) */}
           <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="w-9 h-9 rounded-lg bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-500/20 text-cyan-600 dark:text-cyan-400 flex items-center justify-center">
                   <Phone className="w-4 h-4" />
                 </div>
-                <button
-                  onClick={() => copyToClipboard(personalInfo.phone, 'phone')}
-                  className="flex items-center gap-1 px-2.5 py-1 rounded text-xs font-mono text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 cursor-pointer transition-colors"
-                >
-                  {copiedPhone ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
-                  <span>{copiedPhone ? 'Copied' : 'Copy'}</span>
-                </button>
+                {phoneRevealed ? (
+                  <button
+                    onClick={() => copyToClipboard(personalInfo.phone, 'phone')}
+                    className="flex items-center gap-1 px-2.5 py-1 rounded text-xs font-mono text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 cursor-pointer transition-colors"
+                  >
+                    {copiedPhone ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
+                    <span>{copiedPhone ? 'Copied' : 'Copy'}</span>
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => setPhoneRevealed(true)}
+                    className="flex items-center gap-1 px-2.5 py-1 rounded text-xs font-mono text-cyan-700 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-500/30 hover:bg-cyan-100 dark:hover:bg-cyan-900/40 cursor-pointer transition-colors"
+                    title="Click to reveal phone number"
+                  >
+                    <Eye className="w-3 h-3 text-cyan-600 dark:text-cyan-400" />
+                    <span>Reveal</span>
+                  </button>
+                )}
               </div>
-              <div className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">Phone</div>
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">Phone</span>
+                {!phoneRevealed && (
+                  <span className="text-[10px] font-mono text-slate-400 flex items-center gap-1">
+                    <Lock className="w-2.5 h-2.5 text-slate-400" />
+                    <span>Anti-spam protected</span>
+                  </span>
+                )}
+              </div>
+              {phoneRevealed ? (
+                <a
+                  href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`}
+                  className="text-base font-bold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                >
+                  {personalInfo.phone}
+                </a>
+              ) : (
+                <button
+                  onClick={() => setPhoneRevealed(true)}
+                  className="text-base font-bold text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 text-left cursor-pointer transition-colors font-mono"
+                  title="Click to reveal"
+                >
+                  +91 &bull;&bull;&bull;&bull;&bull; &bull;&bull;456
+                </button>
+              )}
+            </div>
+            {phoneRevealed ? (
               <a
                 href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`}
-                className="text-base font-bold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                className="mt-6 text-xs text-cyan-600 dark:text-cyan-400 hover:underline font-medium"
               >
-                {personalInfo.phone}
+                Call or WhatsApp &rarr;
               </a>
-            </div>
-            <a
-              href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`}
-              className="mt-6 text-xs text-cyan-600 dark:text-cyan-400 hover:underline font-medium"
-            >
-              Call or WhatsApp &rarr;
-            </a>
+            ) : (
+              <button
+                onClick={() => setPhoneRevealed(true)}
+                className="mt-6 text-xs text-cyan-600 dark:text-cyan-400 hover:underline font-medium text-left cursor-pointer"
+              >
+                Click to reveal phone number &rarr;
+              </button>
+            )}
           </div>
 
           {/* Location & Social Profiles */}
